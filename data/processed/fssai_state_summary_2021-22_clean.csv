@@ -1,0 +1,37 @@
+fiscal_year,state_ut,source_report,source_sample_table,source_inspection_table,samples_lifted,samples_analysed,analysis_reports_awaited,nonconforming_previous_year_samples,nonconforming_current_year_samples,unsafe_samples,substandard_samples,labelling_misleading_misc_samples,central_licensed_fbos,state_licensed_fbos,registered_fbos,total_state_inspections,state_ut_source_sample_table,state_ut_source_inspection_table,total_nonconforming_samples,nonconforming_category_count_sum,qc_nonconforming_categories_match,qc_inspection_subtotals_match,qc_analysed_exceeds_lifted,qc_awaited_differs_from_lifted_minus_analysed
+2021-22,Andaman & Nicobar Islands,FSSAI Annual Report 2021-22,Table 14,Table 15,850,850,0,0,4,0,4,0,3,952,1491,2446,Andaman & Nicobar Islands,Andaman And Nicobar Islands,4,4,True,True,False,False
+2021-22,Andhra Pradesh,FSSAI Annual Report 2021-22,Table 14,Table 15,5290,5290,45,5,528,128,167,238,160,42,4,206,Andhra Pradesh,Andhra Pradesh,533,533,True,True,False,True
+2021-22,Arunachal Pradesh,FSSAI Annual Report 2021-22,Table 14,Table 15,330,108,222,1,1,0,0,2,1,40,10,51,Arunachal Pradesh,Arunachal Pradesh,2,2,True,True,False,False
+2021-22,Assam,FSSAI Annual Report 2021-22,Table 14,Table 15,523,520,0,2,64,11,37,18,115,2898,73,3086,Assam,Assam,66,66,True,True,False,True
+2021-22,Bihar,FSSAI Annual Report 2021-22,Table 14,Table 15,2140,555,1585,17,0,3,9,5,16,104,5,125,Bihar,Bihar,17,17,True,True,False,False
+2021-22,Chandigarh,FSSAI Annual Report 2021-22,Table 14,Table 15,388,388,0,1,27,4,17,7,5,1258,25,1288,Chandigarh,Chandigarh,28,28,True,True,False,False
+2021-22,Chhattisgarh,FSSAI Annual Report 2021-22,Table 14,Table 15,1437,1436,1,20,160,16,103,61,13,5070,660,5743,Chhattisgarh,Chhattisgarh,180,180,True,True,False,False
+2021-22,Dadra & Nagar Haveli & Daman and Diu,FSSAI Annual Report 2021-22,Table 14,Table 15,250,234,29,0,0,0,0,0,2,285,321,608,Dadra and Nagar Haveli & Daman and Diu,Dadra & Nagar Haveli & Daman and Diu,0,0,True,True,False,True
+2021-22,Delhi,FSSAI Annual Report 2021-22,Table 14,Table 15,1956,1956,0,5,213,52,58,108,26,851,78,955,Delhi,Delhi,218,218,True,True,False,False
+2021-22,Goa,FSSAI Annual Report 2021-22,Table 14,Table 15,200,200,0,0,14,1,5,8,22,181,935,1138,Goa,Goa,14,14,True,True,False,False
+2021-22,Gujarat,FSSAI Annual Report 2021-22,Table 14,Table 15,16022,13663,2359,67,757,62,482,280,123,12111,1997,14231,Gujarat,Gujarat,824,824,True,True,False,False
+2021-22,Haryana,FSSAI Annual Report 2021-22,Table 14,Table 15,4344,4235,109,96,1086,113,600,469,16,3466,1357,4839,Haryana,Haryana,1182,1182,True,True,False,False
+2021-22,Himachal Pradesh,FSSAI Annual Report 2021-22,Table 14,Table 15,1923,1745,205,14,294,11,91,206,9,1232,1049,2290,Himachal Pradesh,Himachal Pradesh,308,308,True,True,False,True
+2021-22,Jammu & Kashmir,FSSAI Annual Report 2021-22,Table 14,Table 15,9265,8109,1838,240,1495,29,1047,659,10,4321,15719,20050,Jammu & Kashmir,Jammu & Kashmir,1735,1735,True,True,False,True
+2021-22,Jharkhand,FSSAI Annual Report 2021-22,Table 14,Table 15,706,175,531,0,85,24,28,33,3,1116,159,1278,Jharkhand,Jharkhand,85,85,True,True,False,False
+2021-22,Karnataka,FSSAI Annual Report 2021-22,Table 14,Table 15,5965,5844,121,0,150,13,76,61,132,2091,2924,5147,Karnataka,Karnataka,150,150,True,True,False,False
+2021-22,Kerala,FSSAI Annual Report 2021-22,Table 14,Table 15,7890,7855,35,64,861,460,238,227,110,3397,3394,6901,Kerala,Kerala,925,925,True,True,False,False
+2021-22,Ladakh,FSSAI Annual Report 2021-22,Table 14,Table 15,66,47,47,0,19,0,4,15,1,68,356,425,Ladakh,Ladakh,19,19,True,True,False,True
+2021-22,Lakshadweep,FSSAI Annual Report 2021-22,Table 14,Table 15,0,0,0,0,0,0,0,0,0,0,0,0,Lakshadweep,Lakshadweep,0,0,True,True,False,False
+2021-22,Madhya Pradesh,FSSAI Annual Report 2021-22,Table 14,Table 15,15355,16059,3409,889,2011,109,1315,1476,91,4979,1566,6636,Madhya Pradesh,Madhya Pradesh,2900,2900,True,True,True,True
+2021-22,Maharashtra,FSSAI Annual Report 2021-22,Table 14,Table 15,13118,9580,3538,320,1134,377,546,531,175,11198,5421,16794,Maharashtra,Maharashtra,1454,1454,True,True,False,False
+2021-22,Manipur,FSSAI Annual Report 2021-22,Table 14,Table 15,314,236,78,0,3,1,1,1,4,240,624,868,Manipur,Manipur,3,3,True,True,False,False
+2021-22,Meghalaya,FSSAI Annual Report 2021-22,Table 14,Table 15,309,70,239,0,5,0,1,4,3,0,1,4,Meghalaya,Meghalaya,5,5,True,True,False,False
+2021-22,Mizoram,FSSAI Annual Report 2021-22,Table 14,Table 15,0,0,0,0,0,0,0,0,0,0,0,0,Mizoram,Mizoram,0,0,True,True,False,False
+2021-22,Nagaland,FSSAI Annual Report 2021-22,Table 14,Table 15,157,127,30,0,14,0,8,6,2,13,19,34,Nagaland,Nagaland,14,14,True,True,False,False
+2021-22,Odisha,FSSAI Annual Report 2021-22,Table 14,Table 15,1168,1168,0,0,260,66,135,59,22,1816,850,2688,Odisha,Odisha,260,260,True,True,False,False
+2021-22,Puducherry,FSSAI Annual Report 2021-22,Table 14,Table 15,5,5,0,0,2,0,2,0,4,4,0,8,Puducherry,Puducherry,2,2,True,True,False,False
+2021-22,Punjab,FSSAI Annual Report 2021-22,Table 14,Table 15,6768,6768,0,0,1059,81,538,440,37,1377,446,1860,Punjab,Punjab,1059,1059,True,True,False,False
+2021-22,Rajasthan,FSSAI Annual Report 2021-22,Table 14,Table 15,12879,10386,2493,0,2891,409,1747,735,33,257,192,482,Rajasthan,Rajasthan,2891,2891,True,True,False,False
+2021-22,Sikkim,FSSAI Annual Report 2021-22,Table 14,Table 15,66,66,0,5,0,1,0,4,4,245,187,436,Sikkim,Sikkim,5,5,True,True,False,False
+2021-22,Tamil Nadu,FSSAI Annual Report 2021-22,Table 14,Table 15,19858,16363,8478,1033,2745,946,626,2206,106,51218,7745,59069,Tamil Nadu,Tamil Nadu,3778,3778,True,True,False,True
+2021-22,Telangana,FSSAI Annual Report 2021-22,Table 14,Table 15,3077,3077,0,0,353,72,181,100,105,8,140,253,Telangana,Telangana,353,353,True,True,False,False
+2021-22,Tripura,FSSAI Annual Report 2021-22,Table 14,Table 15,51,31,20,0,0,0,0,0,3,555,22,580,Tripura,Tripura,0,0,True,True,False,False
+2021-22,Uttar Pradesh,FSSAI Annual Report 2021-22,Table 14,Table 15,26934,21987,10029,5372,7781,1842,7929,3382,101,13941,26807,40849,Uttar Pradesh,Uttar Pradesh,13153,13153,True,True,False,True
+2021-22,Uttarakhand,FSSAI Annual Report 2021-22,Table 14,Table 15,2397,2511,800,205,355,17,517,26,7,2526,830,3363,Uttarakhand,Uttarakhand,560,560,True,True,True,True
+2021-22,West Bengal,FSSAI Annual Report 2021-22,Table 14,Table 15,3380,2701,679,67,140,42,70,95,74,9471,436,9981,West Bengal,West Bengal,207,207,True,True,False,False

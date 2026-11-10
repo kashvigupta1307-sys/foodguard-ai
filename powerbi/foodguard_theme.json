@@ -1,0 +1,16 @@
+{
+  "name": "FoodGuard AI",
+  "dataColors": [
+    "#123B35",
+    "#34796B",
+    "#4C78A8",
+    "#E3A33B",
+    "#C7473A",
+    "#77A99B",
+    "#8B6FA8",
+    "#D9B77E"
+  ],
+  "background": "#F5F7F6",
+  "foreground": "#173E37",
+  "tableAccent": "#34796B"
+}

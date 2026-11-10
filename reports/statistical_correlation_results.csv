@@ -1,0 +1,4 @@
+variable_x,variable_y,spearman_rho,two_sided_p_value,n_state_ut_rows,interpretation
+total_state_inspections,total_nonconforming_samples,0.7182792303836144,8.11955339637118e-07,36,"Descriptive association only; counts may reflect activity volume, reporting practices, and prior-year results. Not causal or a risk rate."
+samples_lifted,total_nonconforming_samples,0.920644353474824,1.8975478980360422e-15,36,"Descriptive association only; counts may reflect activity volume, reporting practices, and prior-year results. Not causal or a risk rate."
+samples_analysed,total_nonconforming_samples,0.9239987301903992,9.34820956533326e-16,36,"Descriptive association only; counts may reflect activity volume, reporting practices, and prior-year results. Not causal or a risk rate."

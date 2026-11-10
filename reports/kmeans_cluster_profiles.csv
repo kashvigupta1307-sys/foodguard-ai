@@ -1,0 +1,3 @@
+cluster_id,state_ut_count,median_samples_analysed,median_total_state_inspections,median_total_nonconforming_samples
+0,15,108.0,425.0,4.0
+1,21,5290.0,4839.0,560.0

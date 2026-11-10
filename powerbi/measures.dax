@@ -1,0 +1,82 @@
+// Create each measure separately in Power BI Desktop.
+// Table name: FSSAI_State_Summary
+// These are sums/counts from state-level annual report tables, not risk estimates.
+
+State/UT Count =
+DISTINCTCOUNT ( FSSAI_State_Summary[state_ut] )
+
+Samples Lifted =
+SUM ( FSSAI_State_Summary[samples_lifted] )
+
+Samples Analysed =
+SUM ( FSSAI_State_Summary[samples_analysed] )
+
+Analysis Reports Awaited =
+SUM ( FSSAI_State_Summary[analysis_reports_awaited] )
+
+Non-Conforming Results: Previous-Year Samples =
+SUM ( FSSAI_State_Summary[nonconforming_previous_year_samples] )
+
+Non-Conforming Results: Current-Year Samples =
+SUM ( FSSAI_State_Summary[nonconforming_current_year_samples] )
+
+Total Reported Non-Conforming Outcomes =
+[Non-Conforming Results: Previous-Year Samples]
+    + [Non-Conforming Results: Current-Year Samples]
+
+Unsafe Outcomes =
+SUM ( FSSAI_State_Summary[unsafe_samples] )
+
+Substandard Outcomes =
+SUM ( FSSAI_State_Summary[substandard_samples] )
+
+Labelling Misleading Other Outcomes =
+SUM ( FSSAI_State_Summary[labelling_misleading_misc_samples] )
+
+State-Row FoSCoRIS Inspections =
+SUM ( FSSAI_State_Summary[total_state_inspections] )
+
+Unsafe Share of Reported Outcome Categories =
+DIVIDE (
+    [Unsafe Outcomes],
+    [Unsafe Outcomes]
+        + [Substandard Outcomes]
+        + [Labelling Misleading Other Outcomes]
+)
+
+Substandard Share of Reported Outcome Categories =
+DIVIDE (
+    [Substandard Outcomes],
+    [Unsafe Outcomes]
+        + [Substandard Outcomes]
+        + [Labelling Misleading Other Outcomes]
+)
+
+Labelling-Misleading-Other Share of Reported Outcome Categories =
+DIVIDE (
+    [Labelling Misleading Other Outcomes],
+    [Unsafe Outcomes]
+        + [Substandard Outcomes]
+        + [Labelling Misleading Other Outcomes]
+)
+
+// This is a rough ratio, not an official compliance rate. It compares the
+// reported current-year non-conforming count with the reported analysed count.
+// Inspect the row-level validation flags and FSSAI reporting definitions.
+Indicative Current-Year Outcome Yield (Not Official Rate) =
+DIVIDE (
+    [Non-Conforming Results: Current-Year Samples],
+    [Samples Analysed]
+)
+
+Rows with Category Reconciliation Difference =
+CALCULATE (
+    COUNTROWS ( FSSAI_State_Summary ),
+    FSSAI_State_Summary[qc_nonconforming_categories_match] = FALSE ()
+)
+
+Rows with Inspection Reconciliation Difference =
+CALCULATE (
+    COUNTROWS ( FSSAI_State_Summary ),
+    FSSAI_State_Summary[qc_inspection_subtotals_match] = FALSE ()
+)

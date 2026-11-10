@@ -1,0 +1,37 @@
+fiscal_year,state_ut,samples_analysed,nonconforming_current_year_samples,nonconforming_previous_year_samples,unsafe_samples,substandard_samples,labelling_misleading_misc_samples,total_state_inspections,indicative_current_year_nonconforming_yield_percent,unsafe_share_of_reported_issue_categories_percent,has_zero_samples_analysed,risk_score,risk_category,risk_score_limitation
+2021-22,Andaman & Nicobar Islands,850,4,0,0,4,0,2446,0.4705882352941176,0.0,False,,Not scored,Insufficient temporal and entity-level detail; indicator is not evidence of adulteration
+2021-22,Andhra Pradesh,5290,528,5,128,167,238,206,9.98109640831758,24.015009380863038,False,,Not scored,Insufficient temporal and entity-level detail; indicator is not evidence of adulteration
+2021-22,Arunachal Pradesh,108,1,1,0,0,2,51,0.9259259259259258,0.0,False,,Not scored,Insufficient temporal and entity-level detail; indicator is not evidence of adulteration
+2021-22,Assam,520,64,2,11,37,18,3086,12.307692307692308,16.666666666666664,False,,Not scored,Insufficient temporal and entity-level detail; indicator is not evidence of adulteration
+2021-22,Bihar,555,0,17,3,9,5,125,0.0,17.647058823529413,False,,Not scored,Insufficient temporal and entity-level detail; indicator is not evidence of adulteration
+2021-22,Chandigarh,388,27,1,4,17,7,1288,6.958762886597938,14.285714285714285,False,,Not scored,Insufficient temporal and entity-level detail; indicator is not evidence of adulteration
+2021-22,Chhattisgarh,1436,160,20,16,103,61,5743,11.142061281337048,8.88888888888889,False,,Not scored,Insufficient temporal and entity-level detail; indicator is not evidence of adulteration
+2021-22,Dadra & Nagar Haveli & Daman and Diu,234,0,0,0,0,0,608,0.0,,False,,Not scored,Insufficient temporal and entity-level detail; indicator is not evidence of adulteration
+2021-22,Delhi,1956,213,5,52,58,108,955,10.889570552147239,23.853211009174313,False,,Not scored,Insufficient temporal and entity-level detail; indicator is not evidence of adulteration
+2021-22,Goa,200,14,0,1,5,8,1138,7.000000000000001,7.142857142857142,False,,Not scored,Insufficient temporal and entity-level detail; indicator is not evidence of adulteration
+2021-22,Gujarat,13663,757,67,62,482,280,14231,5.54051086876967,7.524271844660194,False,,Not scored,Insufficient temporal and entity-level detail; indicator is not evidence of adulteration
+2021-22,Haryana,4235,1086,96,113,600,469,4839,25.643447461629282,9.560067681895093,False,,Not scored,Insufficient temporal and entity-level detail; indicator is not evidence of adulteration
+2021-22,Himachal Pradesh,1745,294,14,11,91,206,2290,16.84813753581662,3.571428571428571,False,,Not scored,Insufficient temporal and entity-level detail; indicator is not evidence of adulteration
+2021-22,Jammu & Kashmir,8109,1495,240,29,1047,659,20050,18.436305339745964,1.6714697406340056,False,,Not scored,Insufficient temporal and entity-level detail; indicator is not evidence of adulteration
+2021-22,Jharkhand,175,85,0,24,28,33,1278,48.57142857142857,28.235294117647058,False,,Not scored,Insufficient temporal and entity-level detail; indicator is not evidence of adulteration
+2021-22,Karnataka,5844,150,0,13,76,61,5147,2.5667351129363447,8.666666666666668,False,,Not scored,Insufficient temporal and entity-level detail; indicator is not evidence of adulteration
+2021-22,Kerala,7855,861,64,460,238,227,6901,10.961171228516868,49.72972972972973,False,,Not scored,Insufficient temporal and entity-level detail; indicator is not evidence of adulteration
+2021-22,Ladakh,47,19,0,0,4,15,425,40.42553191489361,0.0,False,,Not scored,Insufficient temporal and entity-level detail; indicator is not evidence of adulteration
+2021-22,Lakshadweep,0,0,0,0,0,0,0,,,True,,Not scored,Insufficient temporal and entity-level detail; indicator is not evidence of adulteration
+2021-22,Madhya Pradesh,16059,2011,889,109,1315,1476,6636,12.522573012018182,3.7586206896551726,False,,Not scored,Insufficient temporal and entity-level detail; indicator is not evidence of adulteration
+2021-22,Maharashtra,9580,1134,320,377,546,531,16794,11.837160751565762,25.928473177441543,False,,Not scored,Insufficient temporal and entity-level detail; indicator is not evidence of adulteration
+2021-22,Manipur,236,3,0,1,1,1,868,1.2711864406779663,33.33333333333333,False,,Not scored,Insufficient temporal and entity-level detail; indicator is not evidence of adulteration
+2021-22,Meghalaya,70,5,0,0,1,4,4,7.142857142857142,0.0,False,,Not scored,Insufficient temporal and entity-level detail; indicator is not evidence of adulteration
+2021-22,Mizoram,0,0,0,0,0,0,0,,,True,,Not scored,Insufficient temporal and entity-level detail; indicator is not evidence of adulteration
+2021-22,Nagaland,127,14,0,0,8,6,34,11.023622047244094,0.0,False,,Not scored,Insufficient temporal and entity-level detail; indicator is not evidence of adulteration
+2021-22,Odisha,1168,260,0,66,135,59,2688,22.26027397260274,25.384615384615383,False,,Not scored,Insufficient temporal and entity-level detail; indicator is not evidence of adulteration
+2021-22,Puducherry,5,2,0,0,2,0,8,40.0,0.0,False,,Not scored,Insufficient temporal and entity-level detail; indicator is not evidence of adulteration
+2021-22,Punjab,6768,1059,0,81,538,440,1860,15.647163120567376,7.64872521246459,False,,Not scored,Insufficient temporal and entity-level detail; indicator is not evidence of adulteration
+2021-22,Rajasthan,10386,2891,0,409,1747,735,482,27.83554785287888,14.147353856796958,False,,Not scored,Insufficient temporal and entity-level detail; indicator is not evidence of adulteration
+2021-22,Sikkim,66,0,5,1,0,4,436,0.0,20.0,False,,Not scored,Insufficient temporal and entity-level detail; indicator is not evidence of adulteration
+2021-22,Tamil Nadu,16363,2745,1033,946,626,2206,59069,16.775652386481696,25.039703546850184,False,,Not scored,Insufficient temporal and entity-level detail; indicator is not evidence of adulteration
+2021-22,Telangana,3077,353,0,72,181,100,253,11.472213194670132,20.396600566572236,False,,Not scored,Insufficient temporal and entity-level detail; indicator is not evidence of adulteration
+2021-22,Tripura,31,0,0,0,0,0,580,0.0,,False,,Not scored,Insufficient temporal and entity-level detail; indicator is not evidence of adulteration
+2021-22,Uttar Pradesh,21987,7781,5372,1842,7929,3382,40849,35.38909355528267,14.004409640386223,False,,Not scored,Insufficient temporal and entity-level detail; indicator is not evidence of adulteration
+2021-22,Uttarakhand,2511,355,205,17,517,26,3363,14.13779370768618,3.0357142857142856,False,,Not scored,Insufficient temporal and entity-level detail; indicator is not evidence of adulteration
+2021-22,West Bengal,2701,140,67,42,70,95,9981,5.18326545723806,20.28985507246377,False,,Not scored,Insufficient temporal and entity-level detail; indicator is not evidence of adulteration

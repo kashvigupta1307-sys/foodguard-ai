@@ -1,0 +1,18 @@
+.venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.env
+.DS_Store
+# Raw and processed source data should be reviewed before committing.
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/raw/FSSAI_SOURCE_NOTES.md
+!data/processed/.gitkeep
+# Public, state-level aggregate inputs used by the Streamlit app.
+!data/processed/fssai_state_summary_2021-22_clean.csv
+!data/processed/state_reporting_indicators_2021-22.csv
+!data/processed/state_volume_clusters_2021-22.csv
+!data/processed/data_validation_report.md
+reports/.mplconfig/
