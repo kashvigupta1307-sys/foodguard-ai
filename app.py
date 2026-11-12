@@ -66,9 +66,11 @@ def add_styles() -> None:
         [data-testid="stSidebar"] * { color: #F2F7F5 !important; }
         [data-testid="stMetric"] {
             background: #FFFFFF; padding: 1rem 1.1rem; border-radius: 14px;
-            border: 1px solid #E0E9E5; box-shadow: 0 2px 8px rgba(18,59,53,.04);
+            border: 1px solid #DCE7E2; box-shadow: 0 4px 14px rgba(18,59,53,.06);
+            min-height: 112px;
         }
         [data-testid="stMetricValue"] { color: #123B35; }
+        [data-testid="stMetricLabel"] { color: #5D7872; font-size: .9rem; }
         .hero {
             background: linear-gradient(120deg, #123B35 0%, #246457 100%);
             color: white; padding: 1.6rem 1.8rem; border-radius: 18px;
@@ -76,10 +78,12 @@ def add_styles() -> None:
         }
         .hero h1 { color: white; margin: 0 0 .35rem 0; }
         .hero p { color: #D9EAE5; margin: 0; font-size: 1.03rem; }
+        .hero .eyebrow { color: #B8D8CE; font-size: .78rem; font-weight: 600;
+            letter-spacing: .1em; text-transform: uppercase; margin: 0 0 .45rem 0; }
         .note { background: #E9F1EE; border-left: 4px solid #34796B;
-            padding: .8rem 1rem; border-radius: 8px; margin: .5rem 0 1rem 0; }
+            color: #173E37; padding: .8rem 1rem; border-radius: 8px; margin: .5rem 0 1rem 0; }
         .warning { background: #FFF4DD; border-left: 4px solid #D9992F;
-            padding: .8rem 1rem; border-radius: 8px; margin: .5rem 0 1rem 0; }
+            color: #573D12; padding: .8rem 1rem; border-radius: 8px; margin: .5rem 0 1rem 0; }
         h1, h2, h3 { color: #173E37; }
         </style>
         """,
@@ -161,40 +165,92 @@ def make_state_chart(frame: pd.DataFrame, metric: str, title: str, top_n: int = 
     return fig
 
 
+def make_sample_comparison_chart(frame: pd.DataFrame, top_n: int = 10) -> plt.Figure:
+    """Compare reported samples lifted and analysed for the largest state rows."""
+    top = frame.nlargest(top_n, "samples_lifted").sort_values("samples_lifted")
+    positions = list(range(len(top)))
+    height = 0.36
+    fig, ax = plt.subplots(figsize=(9, max(4.2, len(top) * 0.42)))
+    lifted_bars = ax.barh(
+        [p + height / 2 for p in positions],
+        top["samples_lifted"],
+        height=height,
+        color="#34796B",
+        label="Samples lifted",
+    )
+    analysed_bars = ax.barh(
+        [p - height / 2 for p in positions],
+        top["samples_analysed"],
+        height=height,
+        color="#4C78A8",
+        label="Samples analysed",
+    )
+    ax.set_yticks(positions, top["state_ut"])
+    ax.bar_label(lifted_bars, labels=[fmt_count(x) for x in top["samples_lifted"]], padding=3, fontsize=8)
+    ax.bar_label(analysed_bars, labels=[fmt_count(x) for x in top["samples_analysed"]], padding=3, fontsize=8)
+    ax.set_xlabel("Reported count")
+    ax.set_ylabel("")
+    ax.set_title("Samples lifted and analysed by State/UT")
+    ax.legend(frameon=False, ncol=2, loc="lower right")
+    ax.spines[["top", "right", "left"]].set_visible(False)
+    ax.grid(False, axis="y")
+    ax.grid(True, axis="x", alpha=.2)
+    ax.set_axisbelow(True)
+    fig.tight_layout()
+    return fig
+
+
 def show_home(frame: pd.DataFrame) -> None:
     show_header("Home Dashboard", "A transparent view of published food safety reporting data.")
+    filtered = get_filtered_data(frame)
+    if filtered.empty:
+        st.warning("Choose at least one State/UT and fiscal year in the sidebar.")
+        return
+
     st.markdown(
-        "<div class='hero'><h1>FoodGuard AI</h1><p>Food safety inspection and laboratory reporting analytics · India</p></div>",
+        "<div class='hero'><p class='eyebrow'>FSSAI annual report · India · 2021–22</p><h1>FoodGuard AI</h1><p>Food safety inspection and laboratory reporting analytics</p></div>",
         unsafe_allow_html=True,
     )
     st.markdown(
         "<div class='warning'><b>Interpret with care:</b> the current dataset contains State/UT aggregate counts for FY 2021–22. Counts reflect regulatory sampling and reporting activity; they are not risk rates and do not prove adulteration.</div>",
         unsafe_allow_html=True,
     )
-    years = ", ".join(sorted(frame["fiscal_year"].astype(str).unique()))
-    lifted = int(frame["samples_lifted"].sum())
-    analysed = int(frame["samples_analysed"].sum())
-    nonconforming = int(frame["total_nonconforming_samples"].sum())
-    state_inspections = int(frame["total_state_inspections"].sum())
-    metrics = st.columns(4)
-    for col, label, value, help_text in zip(
-        metrics,
-        ["State / UT rows", "Samples lifted", "Samples analysed", "Non-conforming outcomes"],
-        [len(frame), lifted, analysed, nonconforming],
-        [f"Fiscal year(s): {years}", "As reported in FSSAI Table 14", "As reported in FSSAI Table 14", "Includes previous-year sample results reported in FY 2021–22"],
-    ):
-        col.metric(label, fmt_count(value), help=help_text)
+    st.subheader("Reporting overview")
+    st.caption(f"Showing {len(filtered)} of {len(frame)} State/UT rows · Fiscal year {', '.join(sorted(filtered['fiscal_year'].astype(str).unique()))}")
+    metric_specs = [
+        ("State / UT rows", len(filtered), "Rows in the current selection"),
+        ("Samples lifted", int(filtered["samples_lifted"].sum()), "Reported in FSSAI Table 14"),
+        ("Samples analysed", int(filtered["samples_analysed"].sum()), "Reported in FSSAI Table 14"),
+        ("Non-conforming outcomes", int(filtered["total_nonconforming_samples"].sum()), "Includes results from prior-year samples"),
+        ("Unsafe outcomes", int(filtered["unsafe_samples"].sum()), "A reported outcome count, not a risk rate"),
+        ("State inspections", int(filtered["total_state_inspections"].sum()), "FoSCoRIS State/UT rows in Table 15"),
+    ]
+    metric_columns = st.columns(6)
+    for column, (label, value, help_text) in zip(metric_columns, metric_specs):
+        column.metric(label, fmt_count(value), help=help_text)
 
-    left, right = st.columns([1.2, 1])
+    st.subheader("State and outcome comparisons")
+    left, right = st.columns([1.15, 1])
     with left:
-        st.pyplot(make_category_chart(frame), clear_figure=True, use_container_width=True)
-    with right:
+        metric_labels = {
+            "Reported non-conforming outcomes": "total_nonconforming_samples",
+            "Unsafe outcomes": "unsafe_samples",
+            "Samples analysed": "samples_analysed",
+            "State inspections": "total_state_inspections",
+        }
+        selected_label = st.selectbox("Rank State/UTs by", list(metric_labels))
+        top_n = st.slider("States/UTs to show", min_value=5, max_value=min(20, len(filtered)), value=min(10, len(filtered))) if len(filtered) >= 5 else len(filtered)
         st.pyplot(
-            make_state_chart(frame, "total_nonconforming_samples", "Largest reported outcome counts"),
+            make_state_chart(filtered, metric_labels[selected_label], selected_label, top_n=top_n),
             clear_figure=True,
             use_container_width=True,
         )
-    st.metric("State/UT FoSCoRIS inspections", fmt_count(state_inspections))
+    with right:
+        st.pyplot(make_category_chart(filtered), clear_figure=True, use_container_width=True)
+
+    st.subheader("Sampling coverage")
+    st.pyplot(make_sample_comparison_chart(filtered), clear_figure=True, use_container_width=True)
+    st.caption("Lifted and analysed counts are shown separately as reported. Some State/UT figures do not reconcile directly, so this comparison should not be read as a compliance rate.")
     st.caption("FSSAI also reports 5,063 inspections by Railways and Airport authorities in Table 15; those are not allocated to State/UT rows here.")
 
 
