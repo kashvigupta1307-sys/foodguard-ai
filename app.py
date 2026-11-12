@@ -34,17 +34,17 @@ COLORS = {
     "Substandard": "#E3A33B",
     "Labelling / misleading / other": "#4C78A8",
 }
-PAGES = [
-    "Home Dashboard",
-    "Dataset Upload",
-    "Data Cleaning",
-    "Exploratory Analysis",
-    "Statistical Analysis",
-    "Machine Learning",
-    "Food Safety Risk Analysis",
-    "Regional Analysis",
-    "Product Analysis",
-    "Reports and Insights",
+NAV_ITEMS = [
+    ("🏠  Overview", "Home Dashboard"),
+    ("📍  State comparison", "Regional Analysis"),
+    ("📊  Exploratory analysis", "Exploratory Analysis"),
+    ("🧹  Data quality", "Data Cleaning"),
+    ("📈  Statistics", "Statistical Analysis"),
+    ("🧠  ML feasibility", "Machine Learning"),
+    ("⚠️  Risk analysis", "Food Safety Risk Analysis"),
+    ("📤  Dataset upload", "Dataset Upload"),
+    ("📦  Product data", "Product Analysis"),
+    ("📑  Reports & insights", "Reports and Insights"),
 ]
 
 
@@ -229,29 +229,50 @@ def show_home(frame: pd.DataFrame) -> None:
     for column, (label, value, help_text) in zip(metric_columns, metric_specs):
         column.metric(label, fmt_count(value), help=help_text)
 
-    st.subheader("State and outcome comparisons")
-    left, right = st.columns([1.15, 1])
-    with left:
+    outcomes_tab, sampling_tab, inspections_tab = st.tabs(
+        ["🍽️ Outcome metrics", "🧪 Sampling activity", "🏛️ Inspections"]
+    )
+    with outcomes_tab:
+        st.subheader("State and outcome comparisons")
         metric_labels = {
             "Reported non-conforming outcomes": "total_nonconforming_samples",
             "Unsafe outcomes": "unsafe_samples",
             "Samples analysed": "samples_analysed",
-            "State inspections": "total_state_inspections",
         }
         selected_label = st.selectbox("Rank State/UTs by", list(metric_labels))
         top_n = st.slider("States/UTs to show", min_value=5, max_value=min(20, len(filtered)), value=min(10, len(filtered))) if len(filtered) >= 5 else len(filtered)
+        left, right = st.columns([1.15, 1])
+        with left:
+            st.pyplot(
+                make_state_chart(filtered, metric_labels[selected_label], selected_label, top_n=top_n),
+                clear_figure=True,
+                use_container_width=True,
+            )
+        with right:
+            st.pyplot(make_category_chart(filtered), clear_figure=True, use_container_width=True)
+
+    with sampling_tab:
+        st.subheader("Samples lifted and analysed")
         st.pyplot(
-            make_state_chart(filtered, metric_labels[selected_label], selected_label, top_n=top_n),
+            make_sample_comparison_chart(filtered),
             clear_figure=True,
             use_container_width=True,
         )
-    with right:
-        st.pyplot(make_category_chart(filtered), clear_figure=True, use_container_width=True)
+        st.caption("Lifted and analysed counts are shown separately as reported. Some State/UT figures do not reconcile directly, so this comparison should not be read as a compliance rate.")
 
-    st.subheader("Sampling coverage")
-    st.pyplot(make_sample_comparison_chart(filtered), clear_figure=True, use_container_width=True)
-    st.caption("Lifted and analysed counts are shown separately as reported. Some State/UT figures do not reconcile directly, so this comparison should not be read as a compliance rate.")
-    st.caption("FSSAI also reports 5,063 inspections by Railways and Airport authorities in Table 15; those are not allocated to State/UT rows here.")
+    with inspections_tab:
+        st.subheader("FoSCoRIS inspection counts by State/UT")
+        st.pyplot(
+            make_state_chart(
+                filtered,
+                "total_state_inspections",
+                "Reported State/UT inspections",
+                top_n=min(15, len(filtered)),
+            ),
+            clear_figure=True,
+            use_container_width=True,
+        )
+        st.caption("FSSAI also reports 5,063 inspections by Railways and Airport authorities in Table 15; those are not allocated to State/UT rows here.")
 
 
 def show_upload() -> None:
@@ -425,8 +446,14 @@ def main() -> None:
     add_styles()
     with st.sidebar:
         st.markdown("## 🛡️ FoodGuard AI")
-        st.caption("Food safety analytics · India")
-        page = st.radio("Navigate", PAGES, label_visibility="collapsed")
+        st.caption("Food safety command center · India")
+        st.markdown("#### NAVIGATION")
+        selected_page = st.radio(
+            "Navigate",
+            [label for label, _ in NAV_ITEMS],
+            label_visibility="collapsed",
+        )
+        page = dict(NAV_ITEMS)[selected_page]
         st.divider()
         st.caption("Source: FSSAI Annual Report 2021–22, Tables 14 and 15")
 
